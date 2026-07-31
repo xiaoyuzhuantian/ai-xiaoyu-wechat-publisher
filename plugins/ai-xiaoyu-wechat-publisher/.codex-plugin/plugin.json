@@ -1,0 +1,37 @@
+{
+  "name": "ai-xiaoyu-wechat-publisher",
+  "version": "1.0.0",
+  "description": "Turn Markdown into a polished WeChat Official Account article, a one-click copy version, a high-resolution cover, and a mobile QA preview.",
+  "author": {
+    "name": "AI小愚",
+    "url": "https://github.com/xiaoyuzhuantian"
+  },
+  "homepage": "https://github.com/xiaoyuzhuantian/ai-xiaoyu-wechat-publisher",
+  "repository": "https://github.com/xiaoyuzhuantian/ai-xiaoyu-wechat-publisher",
+  "license": "MIT",
+  "keywords": [
+    "wechat",
+    "official-account",
+    "markdown",
+    "editorial-design",
+    "publishing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI小愚 · 公众号文章发布",
+    "shortDescription": "Markdown 一键生成公众号精排版、复制兼容版与高清横版封面",
+    "longDescription": "把完成的 Markdown 稿件转换为公众号精排版、可直接复制的内联样式兼容版、900×383 可编辑封面、1800×766 高清封面和手机端验收预览。",
+    "developerName": "AI小愚",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "把这篇 Markdown 制作成可直接复制发布的公众号文章和横版封面。",
+      "沿用参考图风格，为这篇文章生成公众号发布包。",
+      "检查这篇公众号文章的手机端排版并修复问题。"
+    ],
+    "brandColor": "#0759ED"
+  }
+}
