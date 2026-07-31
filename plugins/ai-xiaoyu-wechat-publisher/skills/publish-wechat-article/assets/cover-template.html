@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+  :root{
+    --blue:#0759ed;
+    --blue2:#0a6cff;
+    --ink:#080b11;
+    --muted:#56647b;
+    --paper:#fbfdff;
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    min-height:100%;
+    background:#dce5f3;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  body{display:grid;place-items:center}
+  #poster{
+    position:relative;
+    width:900px;
+    height:383px;
+    overflow:hidden;
+    color:var(--ink);
+    background:
+      linear-gradient(90deg,transparent 0 49px,#0759ed10 49px 50px,transparent 50px 99px),
+      linear-gradient(0deg,transparent 0 49px,#0759ed10 49px 50px,transparent 50px 99px),
+      var(--paper);
+    border:1px solid #8cb1f3;
+  }
+  #poster::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,transparent 0 69.7%,#0759ed20 69.7% 69.85%,transparent 69.85%),
+      linear-gradient(0deg,transparent 0 20%,#0759ed18 20% 20.25%,transparent 20.25%);
+  }
+  .main{
+    position:absolute;
+    inset:0 270px 0 0;
+    padding:23px 28px 20px 31px;
+  }
+  .meta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:22px;
+    font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.12em;
+    color:var(--blue);
+  }
+  .meta .index{
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .meta .index::before{
+    content:"";
+    width:31px;
+    height:2px;
+    background:var(--blue);
+  }
+  .rule{
+    height:2px;
+    margin-top:10px;
+    background:linear-gradient(90deg,var(--blue) 0 74px,var(--ink) 74px 100%);
+  }
+  h1{
+    margin:20px 0 0;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+    font-size:55px;
+    line-height:.98;
+    letter-spacing:-3.2px;
+    font-weight:900;
+    -webkit-text-stroke:.25px currentColor;
+  }
+  h1 .line{display:block;white-space:nowrap}
+  h1 .line + .line{margin-top:8px}
+  .ai{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:.94em;
+    margin:0 7px 0 2px;
+    padding:0 9px 3px;
+    color:#fff;
+    background:var(--blue);
+    letter-spacing:-2px;
+    transform:translateY(-1px);
+  }
+  .subline{
+    position:absolute;
+    left:31px;
+    right:28px;
+    bottom:21px;
+    height:53px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  .subline strong{
+    font-size:19px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-.5px;
+  }
+  .subline strong b{color:var(--blue);font-size:23px}
+  .subline small{
+    color:var(--muted);
+    text-align:right;
+    font:750 10px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.08em;
+  }
+  .side{
+    position:absolute;
+    right:0;
+    top:0;
+    width:270px;
+    height:100%;
+    color:#fff;
+    background:linear-gradient(148deg,var(--blue2),#004bd7);
+    padding:22px 22px 20px;
+    border-left:1px solid var(--ink);
+  }
+  .side-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    font:800 10px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.1em;
+  }
+  .side-top .num{
+    font:900 48px/.8 "Arial Black","PingFang SC",sans-serif;
+    letter-spacing:-3px;
+  }
+  .job{
+    margin-top:42px;
+    font:900 47px/.88 "Arial Black","PingFang SC",sans-serif;
+    letter-spacing:-2px;
+  }
+  .workflow{
+    margin-top:11px;
+    font:800 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.2em;
+  }
+  .diagram{
+    position:absolute;
+    left:22px;
+    right:22px;
+    bottom:54px;
+    height:70px;
+    border-top:1px solid #ffffffbb;
+  }
+  .diagram::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    top:34px;
+    height:1px;
+    background:#fff;
+  }
+  .node{
+    position:absolute;
+    top:25px;
+    width:19px;
+    height:19px;
+    border:2px solid #fff;
+    background:var(--blue);
+  }
+  .node:nth-child(1){left:7px;background:#fff}
+  .node:nth-child(2){left:calc(50% - 10px)}
+  .node:nth-child(3){right:7px;background:#fff}
+  .diagram-label{
+    position:absolute;
+    left:22px;
+    right:22px;
+    bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    color:#fff;
+    font:800 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.09em;
+  }
+</style>
+</head>
+<body>
+  <section id="poster" aria-label="{{TITLE}}">
+    <div class="main">
+      <div class="meta">
+        <span>{{META_LEFT}}</span>
+        <span class="index">{{META_RIGHT}}</span>
+      </div>
+      <div class="rule"></div>
+      <h1>
+        <span class="line">{{LINE1}}</span>
+        <span class="line">{{LINE2_BEFORE}}<span class="ai">{{HIGHLIGHT}}</span>{{LINE2_AFTER}}</span>
+      </h1>
+      <div class="subline">
+        <strong>{{SUBTITLE_BEFORE}}<b>{{SUBTITLE_HIGHLIGHT}}</b>{{SUBTITLE_AFTER}}</strong>
+        <small>{{NOTE1}}<br>{{NOTE2}}</small>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="side-top">
+        <span>{{BRAND}}<br>{{TOOLKIT}}</span>
+        <span class="num">{{NUMBER}}</span>
+      </div>
+      <div class="job">{{SIDE_TITLE}}</div>
+      <div class="workflow">{{SIDE_SUB}}</div>
+      <div class="diagram">
+        <i class="node"></i><i class="node"></i><i class="node"></i>
+      </div>
+      <div class="diagram-label">
+        <span>{{LABEL1}}</span><span>{{LABEL2}}</span><span>{{LABEL3}}</span>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
