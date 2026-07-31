@@ -1,0 +1,20 @@
+{
+  "name": "ai-xiaoyu",
+  "interface": {
+    "displayName": "AI小愚 Plugins"
+  },
+  "plugins": [
+    {
+      "name": "ai-xiaoyu-wechat-publisher",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-xiaoyu-wechat-publisher"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
